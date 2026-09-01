@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>FLUXION FOOIES | Filipino Food & Fiesta</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- =========================
+     BANDERITAS (FIESTA BUNTING)
+========================= -->
+    <div class="banderitas" aria-hidden="true"></div>
+
+    <!-- =========================
+     NAVIGATION
+========================= -->
+
+    <header class="navbar">
+      <a href="#" class="logo">
+        <span class="logo-mark">
+          <svg class="sunburst" viewBox="0 0 100 100" aria-hidden="true">
+            <g
+              fill="none"
+              stroke="currentColor"
+              stroke-width="6"
+              stroke-linecap="round">
+              <line x1="50" y1="2" x2="50" y2="18" />
+              <line x1="50" y1="82" x2="50" y2="98" />
+              <line x1="2" y1="50" x2="18" y2="50" />
+              <line x1="82" y1="50" x2="98" y2="50" />
+              <line x1="14" y1="14" x2="25" y2="25" />
+              <line x1="75" y1="75" x2="86" y2="86" />
+              <line x1="14" y1="86" x2="25" y2="75" />
+              <line x1="75" y1="25" x2="86" y2="14" />
+            </g>
+          </svg>
+          F
+        </span>
+        <span>
+          <strong>FLUXION</strong>
+          <small>FOOIES</small>
+        </span>
+      </a>
+
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#order">Order</a>
+      </nav>
+
+      <button class="cart-button" onclick="openCart()">
+        <span>🛒</span>
+        <b id="cartCount">0</b>
+      </button>
+    </header>
+
+    <!-- =========================
+     HERO
+========================= -->
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="fiesta-badge">
+          <span>☀</span>
+          Lutong Pinoy • Made With Love
+          <span>☀</span>
+        </div>
+
+        <h1>
+          Sarap na parang
+          <span>Fiesta.</span>
+        </h1>
+
+        <p>
+          Authentic Filipino favorites, hearty meals, and family bundles made
+          for every celebration.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#menu" class="btn primary-btn">
+            EXPLORE MENU
+            <span>↓</span>
+          </a>
+
+          <a href="#order" class="btn outline-btn"> ORDER NOW </a>
+        </div>
+      </div>
+
+      <div class="hero-food">
+        <div class="hero-image-wrap">
+          <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Lechon%20philippines.jpg?width=1000"
+            alt="Whole roasted Filipino lechon" />
+
+          <div class="hero-price">
+            <small>STARTING AT</small>
+            <strong>₱129</strong>
+          </div>
+        </div>
+
+        <div class="floating-card">
+          <span class="floating-icon">❤</span>
+          <div>
+            <strong>Made Fresh</strong>
+            <small>Every single order</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+     FIESTA STRIP
+========================= -->
+
+    <div class="fiesta-strip">
+      <span>✦</span>
+      LUTONG PINOY
+      <span>•</span>
+      BUSOG
+      <span>✦</span>
+      SULIT
+      <span>•</span>
+      MASARAP
+      <span>✦</span>
+      MADE WITH LOVE
+      <span>•</span>
+      <span>✦</span>
+    </div>
+
+    <!-- =========================
+     MENU
+========================= -->
+
+    <section class="menu-section" id="menu">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">OUR FAVORITES</span>
+
+          <h2>The <span>Fiesta</span> Menu</h2>
+        </div>
+
+        <p>
+          Click any dish to see the details, then add your favorites to your
+          cart.
+        </p>
+      </div>
+
+      <!-- CATEGORY BUTTONS -->
+
+      <div class="categories">
+        <button class="category active" onclick="filterMenu('all', this)">
+          All
+        </button>
+
+        <button class="category" onclick="filterMenu('ulam', this)">
+          Ulam
+        </button>
+
+        <button class="category" onclick="filterMenu('silog', this)">
+          Silog
+        </button>
+
+        <button class="category" onclick="filterMenu('bundle', this)">
+          Fiesta Bundles
+        </button>
+
+        <button class="category" onclick="filterMenu('snacks', this)">
+          Pulutan
+        </button>
+
+        <button class="category" onclick="filterMenu('drinks', this)">
+          Drinks
+        </button>
+      </div>
+
+      <!-- MENU GRID -->
+
+      <div class="menu-grid" id="menuGrid"></div>
+    </section>
+
+    <!-- =========================
+     ABOUT
+========================= -->
+
+    <section class="about-section" id="about">
+      <div class="about-image">
+        <img
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/Boodle%20Fight%2C%20a%20Filipino%20style%20feast.jpg?width=1000"
+          alt="Filipino boodle fight feast, shared family-style" />
+
+        <div class="about-stamp">
+          <strong>100%</strong>
+          <span>PINoy<br />PRIDE</span>
+        </div>
+      </div>
+
+      <div class="about-content">
+        <span class="eyebrow">KAIN NA!</span>
+
+        <h2>Food tastes better when <span>shared.</span></h2>
+
+        <p>
+          FLUXION FOOIES is a Filipino-inspired food concept bringing together
+          the dishes we grew up loving. From sizzling favorites to generous
+          family bundles, every plate is made for sharing.
+        </p>
+
+        <div class="about-points">
+          <div>
+            <strong>01</strong>
+            <span>Freshly Prepared</span>
+          </div>
+
+          <div>
+            <strong>02</strong>
+            <span>Filipino Favorites</span>
+          </div>
+
+          <div>
+            <strong>03</strong>
+            <span>Perfect For Sharing</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+     ORDER SECTION
+========================= -->
+
+    <section class="order-section" id="order">
+      <div class="order-container">
+        <span class="eyebrow">READY NA BA?</span>
+
+        <h2>
+          Let's make your
+          <span>order!</span>
+        </h2>
+
+        <p>
+          Add your favorite dishes to your cart, create your order slip, then
+          send the details to our Facebook page.
+        </p>
+
+        <div class="order-summary-preview">
+          <div class="summary-icon">🛒</div>
+
+          <div>
+            <strong id="bottomCartText"> Your cart is empty </strong>
+
+            <small> Add food from our menu above </small>
+          </div>
+        </div>
+
+        <button class="facebook-order" onclick="openReceipt()">
+          <span class="facebook-icon">f</span>
+
+          <span> CREATE ORDER & CONTINUE TO FACEBOOK </span>
+
+          <strong>↗</strong>
+        </button>
+
+        <div class="location">
+          <span>📍</span>
+
+          <div>
+            <strong>FLUXION FOOIES</strong>
+            <small> Balanga City, Bataan, Philippines </small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+     BANDERITAS (FIESTA BUNTING)
+========================= -->
+    <div class="banderitas" aria-hidden="true"></div>
+
+    <!-- =========================
+     FOOTER
+========================= -->
+
+    <footer>
+      <div class="footer-logo">
+        <span class="logo-mark">F</span>
+
+        <div>
+          <strong>FLUXION FOOIES</strong>
+          <small>FILIPINO FOOD • FIESTA • FAMILY</small>
+        </div>
+      </div>
+
+      <p>© 2026 FLUXION FOOIES. Mockup concept by FLUXION Studio.</p>
+    </footer>
+
+    <!-- =========================
+     FOOD DETAILS MODAL
+========================= -->
+
+    <div class="modal-overlay" id="foodModal">
+      <div class="food-modal">
+        <button class="close-modal" onclick="closeFoodModal()">×</button>
+
+        <div class="modal-image">
+          <img id="modalImage" src="" alt="Food" />
+
+          <span id="modalCategory"> ULAM </span>
+        </div>
+
+        <div class="modal-info">
+          <span class="modal-label"> FLUXION FOOIES </span>
+
+          <h2 id="modalTitle">Food Name</h2>
+
+          <p id="modalDescription">Description</p>
+
+          <div class="modal-details">
+            <div>
+              <small>PRICE</small>
+              <strong id="modalPrice">₱0</strong>
+            </div>
+
+            <div>
+              <small>SERVING</small>
+              <strong id="modalServing">1 Person</strong>
+            </div>
+          </div>
+
+          <button class="add-modal-button" id="modalAddButton">
+            ADD TO CART
+            <span>+</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================
+     CART MODAL
+========================= -->
+
+    <div class="modal-overlay" id="cartModal">
+      <div class="cart-modal">
+        <button class="close-modal" onclick="closeCart()">×</button>
+
+        <span class="eyebrow"> YOUR ORDER </span>
+
+        <h2>Your <span>Fiesta Cart</span></h2>
+
+        <div id="cartItems" class="cart-items"></div>
+
+        <div class="cart-total">
+          <span>Total</span>
+
+          <strong id="cartTotal"> ₱0 </strong>
+        </div>
+
+        <button class="create-receipt" onclick="openReceipt()">
+          CREATE ORDER SLIP
+          <span>→</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- =========================
+     ORDER RECEIPT
+========================= -->
+
+    <div class="receipt-overlay" id="receiptModal">
+      <div class="receipt-paper">
+        <button class="receipt-close" onclick="closeReceipt()">×</button>
+
+        <div class="receipt-header">
+          <div class="receipt-logo">F</div>
+
+          <span> FLUXION FOOIES </span>
+
+          <small> FILIPINO FOOD • FIESTA </small>
+        </div>
+
+        <div class="receipt-title">
+          <span>YOUR ORDER</span>
+          <strong>Order Slip</strong>
+        </div>
+
+        <div id="receiptItems"></div>
+
+        <div class="receipt-divider"></div>
+
+        <div class="receipt-total">
+          <span>TOTAL</span>
+
+          <strong id="receiptTotal"> ₱0 </strong>
+        </div>
+
+        <div class="receipt-note">
+          <strong>HOW TO ORDER</strong>
+
+          <p>
+            1. Copy your order details.<br />
+            2. Click the Facebook button below.<br />
+            3. Paste the message and send it to our page.
+          </p>
+        </div>
+
+        <button class="copy-order" onclick="copyOrder()">
+          <span>▣</span>
+          COPY ORDER DETAILS
+        </button>
+
+        <button class="go-facebook" onclick="goFacebook()">
+          <span class="facebook-icon">f</span>
+
+          SEND THROUGH FACEBOOK
+
+          <strong>↗</strong>
+        </button>
+
+        <div class="copy-message" id="copyMessage">Order copied!</div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
